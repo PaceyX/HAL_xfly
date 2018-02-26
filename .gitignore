@@ -1,0 +1,13 @@
+Output/*
+DebugConfig/*
+Hal_xfly/MDK-ARM/cleaner_jig_rtos/*
+Hal_xfly/MDK-ARM/DebugConfig/*
+Hal_xfly/MDK-ARM/*.ini
+*.lst
+Listings/
+Hal_xfly/MDK-ARM/JLinkLog.txt
+Hal_xfly/MDK-ARM/cleaner_jig_rtos.uvguix.peixu
+*.scvd
+hal_xfly.uvguix.peixu
+JLinkLog.txt
+JLinkSettings.ini
