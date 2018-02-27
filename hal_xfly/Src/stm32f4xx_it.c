@@ -36,6 +36,7 @@
 #include "stm32f4xx_it.h"
 
 /* USER CODE BEGIN 0 */
+#include "includes.h"
 
 /* USER CODE END 0 */
 
@@ -235,7 +236,7 @@ void UART5_IRQHandler(void)
   /* USER CODE END UART5_IRQn 0 */
   HAL_UART_IRQHandler(&huart5);
   /* USER CODE BEGIN UART5_IRQn 1 */
-
+	UART5_RxIRQCallback();
   /* USER CODE END UART5_IRQn 1 */
 }
 

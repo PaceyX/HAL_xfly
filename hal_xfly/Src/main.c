@@ -47,6 +47,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
+#include "includes.h"
 
 /* USER CODE END Includes */
 
@@ -113,14 +114,16 @@ int main(void)
   MX_SPI2_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+	BspInit();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	Comm3_RecceivePack();
+	Comm1_RecceivePack();
+	HAL_Delay(100);	
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

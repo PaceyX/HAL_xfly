@@ -560,10 +560,37 @@
               <FileType>1</FileType>
               <FilePath>.\APP\app_runflag.c</FilePath>
             </File>
+            <File>
+              <FileName>app_usart1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_usart1.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_usart3.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_uart5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\app_uart5.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>usart_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\usart_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\bsp.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Drivers/CMSIS</GroupName>
