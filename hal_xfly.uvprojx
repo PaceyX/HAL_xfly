@@ -581,14 +581,19 @@
           <GroupName>BSP</GroupName>
           <Files>
             <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\bsp.c</FilePath>
+            </File>
+            <File>
               <FileName>usart_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\usart_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>bsp.c</FileName>
+              <FileName>pwm_bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\BSP\bsp.c</FilePath>
+              <FilePath>.\BSP\pwm_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
