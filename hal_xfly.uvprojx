@@ -595,6 +595,11 @@
               <FileType>1</FileType>
               <FilePath>.\BSP\pwm_bsp.c</FilePath>
             </File>
+            <File>
+              <FileName>iic_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\iic_bsp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
