@@ -35,7 +35,7 @@ void Comm3_Init(UART_HandleTypeDef *huart)
 	CommUsart.dma_rx_buffer = USART3_RxBuffer;			/* Config Receive Buffer address. */
 	CommUsart.huart = huart;							/* Get Usart Handle. */
 	
-	CommUsart_Init(&CommUsart, huart);					/* Init DMA Config. */
+	BSP_CommUsartInit(&CommUsart, huart);					/* Init DMA Config. */
 }
 
 /**
@@ -45,7 +45,7 @@ void Comm3_Init(UART_HandleTypeDef *huart)
 */
 uint8_t Comm3_SendData(uint8_t * buff, uint16_t len)
 {
-	return CommUsart_SendData(&CommUsart, buff, len);
+	return BSP_CommUsartSendData(&CommUsart, buff, len);
 }
 
 void Comm3_RecceivePack(void)
@@ -54,7 +54,7 @@ void Comm3_RecceivePack(void)
 	uint32_t len;
 	Comm3_FrameType * hc = &Comm3Rx;
 	
-	if(CommUsart_RecvData(&CommUsart, &data, &len))
+	if(BSP_CommUsartRecvData(&CommUsart, &data, &len))
 	{
 		for(int i = 0; i<len; i++)
 		{

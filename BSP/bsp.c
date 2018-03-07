@@ -4,12 +4,12 @@
 
 
 
-void BspInit(void)
+void BSP_Init(void)
 {
 	Comm1_Init(&huart1);
 	Comm3_Init(&huart3);
 	Comm5_Init(&huart5);
-	vPwmChannelStart();
+	BSP_PWMChannelStart();
 	
 	
 	

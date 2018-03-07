@@ -5,7 +5,7 @@
 
 
 
-void BspInit(void);
+void BSP_Init(void);
 
 
 

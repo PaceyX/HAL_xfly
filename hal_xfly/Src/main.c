@@ -114,7 +114,7 @@ int main(void)
   MX_SPI2_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-	BspInit();
+	BSP_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */

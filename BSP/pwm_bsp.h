@@ -5,7 +5,7 @@
 
 
 
-void vPwmChannelStart(void);
+void BSP_PWMChannelStart(void);
 
 
 

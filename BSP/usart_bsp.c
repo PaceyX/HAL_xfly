@@ -18,7 +18,7 @@
 * @param  huart : 串口句柄
 * @retval None
 */
-void CommUsart_Init(CommUsartType *hcomm, UART_HandleTypeDef *huart)
+void BSP_CommUsartInit(CommUsartType *hcomm, UART_HandleTypeDef *huart)
 {
     hcomm->huart = huart;
     hcomm->tx_tc_flag = __HAL_DMA_GET_TC_FLAG_INDEX(huart->hdmatx);			/* Transfer complete flag: TC = 1 (TX Line). */
@@ -39,9 +39,9 @@ void CommUsart_Init(CommUsartType *hcomm, UART_HandleTypeDef *huart)
 * @param  len   : 数据长度
 * @retval 1 发送成功
 */
-uint8_t CommUsart_SendData(CommUsartType *hcomm, const uint8_t *data, uint16_t len)
+uint8_t BSP_CommUsartSendData(CommUsartType *hcomm, const uint8_t *data, uint16_t len)
 {
-    return USER_UART_Transmit_DMA(hcomm->huart, data, len, hcomm->tx_tc_flag) == HAL_OK;
+    return BSP_UserUartTransmitDMA(hcomm->huart, data, len, hcomm->tx_tc_flag) == HAL_OK;
 }
 
 /**
@@ -49,7 +49,7 @@ uint8_t CommUsart_SendData(CommUsartType *hcomm, const uint8_t *data, uint16_t l
 * @param  hcomm : 句柄
 * @retval true 可以发送
 */
-bool CommUsart_CanSendData(CommUsartType *hcomm)
+bool BSP_CommUsartCanSendData(CommUsartType *hcomm)
 {
     if(hcomm->huart->hdmatx->State != HAL_DMA_STATE_BUSY 
         || __HAL_DMA_GET_FLAG(hcomm->huart->hdmatx, hcomm->tx_tc_flag))
@@ -66,7 +66,7 @@ bool CommUsart_CanSendData(CommUsartType *hcomm)
 * @param  plen  : 返回接收到的数据长度
 * @retval 是否有数据
 */
-bool CommUsart_RecvData(CommUsartType *hcomm, uint8_t **pbuf, uint32_t* plen)
+bool BSP_CommUsartRecvData(CommUsartType *hcomm, uint8_t **pbuf, uint32_t* plen)
 {
     uint16_t data_cnt = hcomm->buffer_size - __HAL_DMA_GET_COUNTER(hcomm->huart->hdmarx);	/* Get The Data has Received. */
     *pbuf = &hcomm->dma_rx_buffer[hcomm->offset];										/* Make sure address the data will be stored. */
@@ -93,7 +93,7 @@ bool CommUsart_RecvData(CommUsartType *hcomm, uint8_t **pbuf, uint32_t* plen)
 * @param  len   : 需要接收的数据长度
 * @retval 是否有数据
 */
-bool CommUsart_RecvDataByLength(CommUsartType *hcomm, uint8_t *buf, uint32_t len, uint32_t timeout)
+bool BSP_CommUsartRecvDataByLength(CommUsartType *hcomm, uint8_t *buf, uint32_t len, uint32_t timeout)
 {
     uint32_t tick = HAL_GetTick();
     uint32_t i;
@@ -126,7 +126,7 @@ bool CommUsart_RecvDataByLength(CommUsartType *hcomm, uint8_t *buf, uint32_t len
 * @param  en    : true 使能
 * @retval None
 */
-void CommUsart_EnableIT(CommUsartType *hcomm, bool en)
+void BSP_CommUsartEnableIT(CommUsartType *hcomm, bool en)
 {
     if(en)
     {
@@ -146,7 +146,7 @@ void CommUsart_EnableIT(CommUsartType *hcomm, bool en)
 * @param  tx_tc_flag : 发送完成 flag 偏移
 * @retval None
 */
-HAL_StatusTypeDef USER_UART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t tx_tc_flag)
+HAL_StatusTypeDef BSP_UserUartTransmitDMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t tx_tc_flag)
 {
 //    if(__HAL_DMA_GET_FLAG(huart->hdmatx, tx_tc_flag))
 //    {

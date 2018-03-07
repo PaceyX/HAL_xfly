@@ -17,7 +17,7 @@
   * @note   此函数与HAL_I2C_Mem_Read函数的使用方法基本一致，但是加入对指定的i2c标志是否设置的判断
             并进行了超时时间的判断
   */
-HAL_StatusTypeDef hIicMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, 
+HAL_StatusTypeDef BSP_IICMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, 
         uint8_t *pData, uint16_t Size, uint32_t Timeout)
 {
     HAL_StatusTypeDef ret;
@@ -57,7 +57,7 @@ HAL_StatusTypeDef hIicMemoryRead(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, u
   * @note   此函数与HAL_I2C_Mem_Write函数的使用方法基本一致，但是加入对指定的i2c标志是否设置的判断
             并进行了超时时间的判断
   */
-HAL_StatusTypeDef hIicMemoryWrite(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, 
+HAL_StatusTypeDef BSP_IICMemoryWrite(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, 
         uint8_t *pData, uint16_t Size, uint32_t Timeout)
 {
     HAL_StatusTypeDef ret;
@@ -83,7 +83,7 @@ HAL_StatusTypeDef hIicMemoryWrite(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, 
 }
 
 
-HAL_StatusTypeDef hIicMemoryWriteByDma(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size)
+HAL_StatusTypeDef BSP_IICMemoryWriteByDMA(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size)
 {
     HAL_StatusTypeDef ret;
     DMA_HandleTypeDef *hdma = hi2c->hdmatx;
@@ -146,7 +146,7 @@ HAL_StatusTypeDef hIicMemoryWriteByDma(I2C_HandleTypeDef *hi2c, uint16_t DevAddr
 }
 
 
-HAL_StatusTypeDef hIicMemoryReadByDma(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size)
+HAL_StatusTypeDef BSP_IICMemoryReadByDMA(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size)
 {
     HAL_StatusTypeDef ret;
     DMA_HandleTypeDef *hdma = hi2c->hdmarx;
