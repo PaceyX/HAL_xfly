@@ -1,10 +1,6 @@
 #ifndef __GLOBAL_DEFINE_H__
 #define __GLOBAL_DEFINE_H__
 
-#include "includes.h"
-
-
-
 
 typedef float f32;
 typedef double  f64;
