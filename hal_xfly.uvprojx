@@ -575,6 +575,21 @@
               <FileType>1</FileType>
               <FilePath>.\APP\app_uart5.c</FilePath>
             </File>
+            <File>
+              <FileName>max21100.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\max21100.c</FilePath>
+            </File>
+            <File>
+              <FileName>hmc5983.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\hmc5983.c</FilePath>
+            </File>
+            <File>
+              <FileName>ms5611.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\APP\ms5611.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -599,6 +614,11 @@
               <FileName>iic_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\iic_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\spi_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
