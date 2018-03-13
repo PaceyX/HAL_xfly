@@ -121,9 +121,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	Comm3_RecceivePack();
-	Comm1_RecceivePack();
-	HAL_Delay(100);	
+		Comm3_RecceivePack();
+		Comm1_RecceivePack();
+		HAL_Delay(100);	
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

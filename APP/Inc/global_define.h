@@ -1,6 +1,8 @@
 #ifndef __GLOBAL_DEFINE_H__
 #define __GLOBAL_DEFINE_H__
 
+#include "stm32f4xx.h"
+
 
 typedef float f32;
 typedef double  f64;

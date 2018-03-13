@@ -11,4 +11,5 @@ void BSP_Init(void)
     Comm3_Init(&huart3);
     Comm5_Init(&huart5);
     BSP_PWMChannelStart();
+	HMC5983_Init();
 }
