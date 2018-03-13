@@ -1,8 +1,9 @@
-#include "includes.h"
+#include "stm32f4xx_hal.h"
+#include "usart.h"
+#include <stdbool.h>
+#include "global_define.h"
 
-
-
-static u8 UartCommData = 0;
+static uint8_t UartCommData = 0;
 
 /**
 * @brief  Transmittion layer Initialization.

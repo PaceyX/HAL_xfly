@@ -32,15 +32,16 @@
 #include "global_define.h"
 #include "bsp.h"
 #include "app_runflag.h"
-#include "app_usart1.h"
-#include "app_usart3.h"
-#include "app_uart5.h"
+
 
 
 
 /************************************BSP***************************************/
 #include "usart_bsp.h"
 #include "pwm_bsp.h"
+#include "usart1_bsp.h"
+#include "usart3_bsp.h"
+#include "uart5_bsp.h"
 
 
 #endif

@@ -8,7 +8,20 @@
 ******************************************************************************
 */
 
-#include "includes.h"
+#include "stm32f4xx_hal.h"
+#include "usart.h"
+#include <stdbool.h>
+#include "global_define.h"
+#include "usart_bsp.h"
+
+
+typedef struct
+{
+	uint16_t offset;		/* Accumulate the received data and find frame head. */
+	u8 * buffer;
+	u16 size;
+}Comm1_FrameType;
+
 
 
 /* DMA-Usart3 Config. */

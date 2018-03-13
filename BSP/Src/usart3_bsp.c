@@ -8,7 +8,20 @@
 ******************************************************************************
 */
 
-#include "includes.h"
+#include "stm32f4xx_hal.h"
+#include "usart.h"
+#include <stdbool.h>
+#include "global_define.h"
+#include "usart_bsp.h"
+
+
+typedef struct
+{
+	uint16_t offset;		/* Accumulate the received data and find frame head. */
+	uint8_t * buffer;
+	uint16_t size;
+}Comm3_FrameType;
+
 
 /* DMA-Usart3 Config. */
 #define USART3_BUFF_SIZE	128
@@ -57,19 +70,13 @@ void Comm3_RecceivePack(void)
 	if(BSP_CommUsartRecvData(&CommUsart, &data, &len))
 	{
 		for(int i = 0; i<len; i++)
-		{
-			if(hc->offset >= hc->size)		hc->offset = 0;
-			Comm3_SendData("aaa",3);
+        {
+            if(hc->offset >= hc->size)		hc->offset = 0;
+            Comm3_SendData("aaa",3);
 //			FactoryDataRecv(hc, data[i]);		
 		}
 	}
 }
 
-/**
-*	@brief	The task communiction with board.
-*/
-void uCommWithBoard_Task(void)
-{
-	
-}
+
 
