@@ -6,9 +6,9 @@ Hal_xfly/MDK-ARM/*.ini
 *.lst
 Listings/
 Hal_xfly/MDK-ARM/JLinkLog.txt
-Hal_xfly/MDK-ARM/cleaner_jig_rtos.uvguix.peixu
+
 *.scvd
-hal_xfly.uvguix.peixu
-hal_xfly.uvguix.Pacey
+*.uvguix.*
+
 JLinkLog.txt
 JLinkSettings.ini

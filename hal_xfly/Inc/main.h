@@ -56,6 +56,10 @@
 #define LED_RED_GPIO_Port GPIOE
 #define LED_GREEN_Pin GPIO_PIN_4
 #define LED_GREEN_GPIO_Port GPIOE
+#define ULTR_TRIG_Pin GPIO_PIN_3
+#define ULTR_TRIG_GPIO_Port GPIOD
+#define ULTR_ECHO_Pin GPIO_PIN_4
+#define ULTR_ECHO_GPIO_Port GPIOD
 #define RGB_LE_Pin GPIO_PIN_0
 #define RGB_LE_GPIO_Port GPIOE
 #define RGB_CLK_Pin GPIO_PIN_1
