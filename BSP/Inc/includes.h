@@ -44,6 +44,7 @@
 #include "usart3_bsp.h"
 #include "uart5_bsp.h"
 #include "hmc5983.h"
+#include "ultrasonic.h"
 
 
 #endif

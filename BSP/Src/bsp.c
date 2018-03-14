@@ -13,4 +13,5 @@ void BSP_Init(void)
     BSP_PWMChannelStart();
 	HMC5983_Init();
 	HAL_TIM_Base_Start_IT(&htim6);
+	BSP_GPIO_SonicInit();
 }

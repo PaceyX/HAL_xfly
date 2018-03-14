@@ -13,6 +13,7 @@
 #include <stdbool.h>
 #include "global_define.h"
 #include "usart_bsp.h"
+#include <stdio.h>
 
 
 typedef struct
@@ -82,5 +83,11 @@ void Comm1_RecceivePack(void)
 			//...
 		}
 	}
+}
+
+int fputc(int ch, FILE *f)
+{
+	Comm1_SendData((uint8_t *)&ch, sizeof(ch));
+	return ch;
 }
 
