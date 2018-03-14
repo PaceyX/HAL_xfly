@@ -14,14 +14,14 @@
 
 
 
-#define SONIC_VELOCITY		(0.34)			/* cm/us */	
+#define SONIC_VELOCITY		(0.034)			/* cm/us */	
 
 typedef struct
 {
 	uint8_t set_start_flag;
 	uint8_t set_end_flag;
 	uint8_t recvive_signal_flag;
-	uint8_t go_back_time;
+	uint16_t go_back_time;
 	float distance;
 }UltraTypedef;
 UltraTypedef ultra;
@@ -43,13 +43,10 @@ void BSP_GPIO_SonicInit(void)
 *	@retval	none.
 */
 void ultraDistanceSampling(void)
-{
-	uint16_t ddd = ultra.distance*100;
-	
+{	
 	ultra.set_start_flag = 1;
-	HAL_Delay(10);
-//	printf("%f\n", ultra.distance);
-	Comm1_SendData("aasx", 4);
+	HAL_Delay(50);
+	printf("%f\n", ultra.distance);
 }
 
 /**
@@ -76,7 +73,7 @@ static void SendStartSignal(void)
 	{
 		TRIG_SET_HIGH;
 		cou++;
-		if(cou == 2)	/* send 20us high level. */
+		if(cou == 3)	/* send 20us high level. */
 		{
 			TRIG_SET_LOW;
 			ultra.set_start_flag = 2;
@@ -92,7 +89,7 @@ static void SendStartSignal(void)
 */
 static void GetEchoSignal(void)
 {
-	static uint8_t time = 1;
+	static uint16_t time = 0;
 	
 	if(READ_ECHO_PIN == GPIO_PIN_SET && ultra.set_start_flag == 2)
 	{
@@ -101,14 +98,14 @@ static void GetEchoSignal(void)
 	
 	if(ultra.recvive_signal_flag == 1 && ultra.set_start_flag == 2)
 	{
-		time++;		/* once 10us. */
+		time+=10;		/* once 10us. */
 		if(READ_ECHO_PIN == GPIO_PIN_RESET)
 		{
 			ultra.recvive_signal_flag = 0;
 			ultra.set_start_flag = 0;
 			ultra.go_back_time = time;
 			CalculateDistance();				/* calculate distance. */
-			time = 1;
+			time = 0;
 		}
 	}
 	/* No ack handle situation in here. */

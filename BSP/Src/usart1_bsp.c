@@ -87,7 +87,8 @@ void Comm1_RecceivePack(void)
 
 int fputc(int ch, FILE *f)
 {
-	Comm1_SendData((uint8_t *)&ch, sizeof(ch));
+	HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+//	Comm1_SendData((uint8_t *)&ch, sizeof(ch));
 	return ch;
 }
 
