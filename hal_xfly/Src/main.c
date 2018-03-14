@@ -47,7 +47,8 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-#include "includes.h"
+#include "task.h"
+#include "bsp.h"
 
 /* USER CODE END Includes */
 
@@ -113,6 +114,7 @@ int main(void)
   MX_I2C2_Init();
   MX_SPI2_Init();
   MX_ADC1_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 	BSP_Init();
   /* USER CODE END 2 */
@@ -121,9 +123,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		Comm3_RecceivePack();
-		Comm1_RecceivePack();
-		HAL_Delay(100);	
+	AppTask();
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

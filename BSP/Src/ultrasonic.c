@@ -39,5 +39,5 @@ void SendStartInfo(void)
 */
 uint16_t ultraGetOutputCallBack(void)
 {
-	
+	return 0;
 }

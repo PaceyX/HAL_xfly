@@ -12,4 +12,5 @@ void BSP_Init(void)
     Comm5_Init(&huart5);
     BSP_PWMChannelStart();
 	HMC5983_Init();
+	HAL_TIM_Base_Start_IT(&htim6);
 }
