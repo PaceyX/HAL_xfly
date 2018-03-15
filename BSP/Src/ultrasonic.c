@@ -40,6 +40,7 @@ void BSP_GPIO_SonicInit(void)
 /**
 *	@brief	ultrasonic sampling.
 *	@param	none.
+*	@bote	Sampling frequency : at least 20ms.
 *	@retval	none.
 */
 void ultraDistanceSampling(void)
@@ -54,7 +55,7 @@ void ultraDistanceSampling(void)
 *	@param	none.
 *	@retval none.
 */
-void CalculateDistance(void)
+static void CalculateDistance(void)
 {
 	ultra.distance = SONIC_VELOCITY * (ultra.go_back_time / 2);
 }
@@ -73,7 +74,7 @@ static void SendStartSignal(void)
 	{
 		TRIG_SET_HIGH;
 		cou++;
-		if(cou == 3)	/* send 20us high level. */
+		if(cou == 2)	/* send 20us high level. */
 		{
 			TRIG_SET_LOW;
 			ultra.set_start_flag = 2;
@@ -98,12 +99,12 @@ static void GetEchoSignal(void)
 	
 	if(ultra.recvive_signal_flag == 1 && ultra.set_start_flag == 2)
 	{
-		time+=10;		/* once 10us. */
+		time++;		/* once 10us. */
 		if(READ_ECHO_PIN == GPIO_PIN_RESET)
 		{
 			ultra.recvive_signal_flag = 0;
 			ultra.set_start_flag = 0;
-			ultra.go_back_time = time;
+			ultra.go_back_time = time*10;
 			CalculateDistance();				/* calculate distance. */
 			time = 0;
 		}
@@ -114,9 +115,9 @@ static void GetEchoSignal(void)
 
 
 /**
-*  @brief  Get high level time.
+*  @brief  Call back function.
 *  @param  none.
-*  @retval the high level time(us).
+*  @retval none.
 *  @note   Be called in timer interrupt that breaks every 10us.
 */
 void ultrasonicCallBack(void)
