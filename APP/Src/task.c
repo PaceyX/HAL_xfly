@@ -14,4 +14,6 @@ void AppTask(void)
 		HAL_GPIO_TogglePin(LED_GREEN_GPIO_Port,LED_GREEN_Pin);
 	}
 	ultraDistanceSampling();
+	HMC5983_ReadMag();
+	HAL_Delay(100);
 }
