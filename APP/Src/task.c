@@ -15,5 +15,4 @@ void AppTask(void)
 	}
 	ultraDistanceSampling();
 	HMC5983_ReadMag();
-	HAL_Delay(100);
 }

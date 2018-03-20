@@ -5,6 +5,7 @@
 
 //Address
 #define HMC5983_ADDRESS         0x3C
+#define HMC5983_ADDRESS_READ    0x3D
 
 // Register	
 #define HMC5983_CFG_A			0x00
