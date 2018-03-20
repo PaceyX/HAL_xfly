@@ -8,7 +8,7 @@
 
 // Register	
 #define HMC5983_CFG_A			0x00
-#define HMC5983_CFG_B			0x01 
+#define HMC5983_CFG_B			0x01
 #define HMC5983_MODE 			0x02
 #define HMC5983_X_MSB 			0x03
 #define HMC5983_X_LSB 			0x04 
