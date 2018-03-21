@@ -14,5 +14,5 @@ void BSP_Init(void)
 	HMC5983_Init();
 	HAL_TIM_Base_Start_IT(&htim6);
 	BSP_GPIO_SonicInit();
-	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);	/* turn off green light. */
+	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);	/* turn off green light. */
 }

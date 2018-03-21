@@ -601,11 +601,6 @@
               <FilePath>.\BSP\Src\iic_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\bsp_gpio.c</FilePath>
-            </File>
-            <File>
               <FileName>pwm_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\pwm_bsp.c</FilePath>
@@ -634,6 +629,11 @@
               <FileName>usart3_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\usart3_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\gpio_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
