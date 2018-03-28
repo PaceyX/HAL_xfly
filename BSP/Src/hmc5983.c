@@ -3,7 +3,7 @@
 #include "i2c.h"
 
 
-uint8_t Magnetic[6];
+short Magnetic[3];
 uint8_t HmcRetStatus;
 
 void HMC5983_Init(void)
@@ -26,6 +26,6 @@ void HMC5983_ReadMag(void)
 	if(HAL_GetTick() - last_time > 80)	last_time = HAL_GetTick();
 	else  return;
 	
-	HmcRetStatus = BSP_IICMemoryRead(&hi2c1, HMC5983_ADDRESS, HMC5983_X_MSB,I2C_MEMADD_SIZE_8BIT, Magnetic, 6, 10);
+	HmcRetStatus = BSP_IICMemoryRead(&hi2c1, HMC5983_ADDRESS, HMC5983_X_MSB,I2C_MEMADD_SIZE_8BIT, (uint8_t *)Magnetic, 6, 10);
 
 }

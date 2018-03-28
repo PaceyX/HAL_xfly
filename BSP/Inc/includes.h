@@ -45,6 +45,7 @@
 #include "uart5_bsp.h"
 #include "hmc5983.h"
 #include "ultrasonic.h"
+#include "max21100.h"
 
 
 #endif
