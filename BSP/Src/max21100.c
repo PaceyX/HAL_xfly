@@ -33,6 +33,8 @@ void MAX_CS_Disable(void)
 	HAL_GPIO_WritePin(MAX_CS_GPIO_Port, MAX_CS_Pin, GPIO_PIN_SET);
 }
 
+
+
 /**
 *	@brief	Write data to register.
 *	@param	reg : the register.
@@ -65,21 +67,34 @@ uint8_t MAX21100_ReadReg(uint8_t reg)
 	HAL_SPI_Transmit(&hspi1, &reg, 1, 0xFFFF);
 	HAL_SPI_Receive(&hspi1, &reg_value, 1, 0xFFFF);
 	MAX_CS_Disable();
-	return reg_value;
+	return (reg_value); 
 }
+
+/**************************实现函数********************************************
+*函数原型:	  void HMC59X3_getID(char id[3])
+*功　　能:	   读取芯片的ID
+输入参数：     	ID存放的数组
+输出参数：  无
+*******************************************************************************/
+uint8_t GET_MAX21100_ID(void) 
+{
+	return MAX21100_ReadReg(MAX21100_WHO_AM_I);
+}  
 
 /**
 *	@brief	MAX21100 Init.
 */
 void Max21100_Init(void)
 {
-	MAX_CS_Enable();
-
-	MAX21100_WriteReg(MAX21100_POWER_CFG, MAX21100_POWER_CFG_DATA);	/* Config power */
-	HAL_Delay(100);
+	MaxRetStatus = GET_MAX21100_ID();
 	
-	MAX21100_WriteReg(MAX21100_I2C_CFG, MAX21100_I2C_CFG_DATA);
+	MAX21100_WriteReg(MAX21100_POWER_CFG, MAX21100_POWER_CFG_DATA);
 	HAL_Delay(100);
+
+	//关闭从IIC
+	MAX21100_WriteReg(MAX21100_I2C_CFG, MAX21100_I2C_CFG_DATA);
+	HAL_Delay(100);	
+	
 }
 
 void MAX21100_UpdateData(void)
@@ -91,6 +106,5 @@ void MAX21100_UpdateData(void)
 	acc.x=((((int16_t)MAX21100_ReadReg(MAX_ACC_X_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_X_L)) ;
 	acc.y=((((int16_t)MAX21100_ReadReg(MAX_ACC_Y_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Y_L)) ;
 	acc.z=((((int16_t)MAX21100_ReadReg(MAX_ACC_Z_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Z_L)) ;
-	HAL_Delay(100);
 }
 

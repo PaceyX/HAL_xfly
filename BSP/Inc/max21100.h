@@ -67,11 +67,11 @@
 #define MAX21100_I2C_CFG_DATA          0X01
 
 
-
+#define MAX21100_WHO_AM_I          0x20
 
 void Max21100_Init(void);
 void MAX21100_UpdateData(void);
-
+uint8_t GET_MAX21100_ID(void);
 
 
 

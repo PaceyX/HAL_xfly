@@ -34,7 +34,8 @@ UltraTypedef ultra;
 */
 void BSP_GPIO_SonicInit(void)
 {
-    TRIG_SET_LOW;		/* Trig pin set low. */
+    TRIG_SET_LOW;				/* Trig pin set low. */
+	ultra.set_end_flag = 1;		/* init. */
 }
 
 /**
@@ -46,7 +47,6 @@ void BSP_GPIO_SonicInit(void)
 void ultraDistanceSampling(void)
 {	
 	ultra.set_start_flag = 1;
-	HAL_Delay(50);
 	printf("%f\n", ultra.distance);
 }
 
@@ -72,6 +72,9 @@ static void SendStartSignal(void)
 	
 	if(ultra.set_start_flag == 1)
 	{
+		if(ultra.set_end_flag == 0)		return;
+		
+		ultra.set_end_flag = 0;
 		TRIG_SET_HIGH;
 		cou++;
 		if(cou == 2)	/* send 20us high level. */
@@ -105,6 +108,7 @@ static void GetEchoSignal(void)
 			ultra.recvive_signal_flag = 0;
 			ultra.set_start_flag = 0;
 			ultra.go_back_time = time*10;
+			ultra.set_end_flag = 1;
 			CalculateDistance();				/* calculate distance. */
 			time = 0;
 		}
