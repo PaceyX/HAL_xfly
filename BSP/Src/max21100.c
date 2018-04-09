@@ -88,23 +88,44 @@ void Max21100_Init(void)
 {
 	MaxRetStatus = GET_MAX21100_ID();
 	
+	/* Select Bank0. */
+	MAX21100_WriteReg(MAX_BANK_SELECT, 0x00);
+	/* Power Down. */
 	MAX21100_WriteReg(MAX21100_POWER_CFG, MAX21100_POWER_CFG_DATA);
-	HAL_Delay(100);
-
-	//¹Ø±Õ´ÓIIC
-	MAX21100_WriteReg(MAX21100_I2C_CFG, MAX21100_I2C_CFG_DATA);
-	HAL_Delay(100);	
+	/* Gyro: 10Hz BW£¬ 2000dps FS. */
+	MAX21100_WriteReg(MAX21100_GYRO_CFG1, 0x10);
+	/* 4KHz Gyro ODR. */
+	MAX21100_WriteReg(MAX21100_GYRO_CFG2, 0X01);
+	/* ACC: 8g FS. */
+	MAX21100_WriteReg(MAX21100_PWR_ACC_CFG, 0x47);
+	/* 2KHz Acc ODR. */
+	MAX21100_WriteReg(MAX21100_ACC_CFG1, 0x00);
+	/* ACC Low-Noise + Gyro-Noise. */
+	MAX21100_WriteReg(MAX21100_POWER_CFG, 0x7F);
 	
+	HAL_Delay(100);		
 }
 
 void MAX21100_UpdateData(void)
 {
-	gyro.x=((((int16_t)MAX21100_ReadReg(MAX_GYRO_X_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_X_L));
-	gyro.y=((((int16_t)MAX21100_ReadReg(MAX_GYRO_Y_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_Y_L)) ;
-	gyro.z=((((int16_t)MAX21100_ReadReg(MAX_GYRO_Z_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_Z_L)) ;
+	uint8_t status;
+	uint8_t gyro_status, acc_status;
 	
-	acc.x=((((int16_t)MAX21100_ReadReg(MAX_ACC_X_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_X_L)) ;
-	acc.y=((((int16_t)MAX21100_ReadReg(MAX_ACC_Y_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Y_L)) ;
-	acc.z=((((int16_t)MAX21100_ReadReg(MAX_ACC_Z_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Z_L)) ;
+	status = MAX21100_ReadReg(MAX_SYSTEM_STATUS);
+	gyro_status = status & 0x01;
+	acc_status = status & 0x04;
+	
+	if(gyro_status)
+	{
+		gyro.x=((((int16_t)MAX21100_ReadReg(MAX_GYRO_X_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_X_L));
+		gyro.y=((((int16_t)MAX21100_ReadReg(MAX_GYRO_Y_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_Y_L)) ;
+		gyro.z=((((int16_t)MAX21100_ReadReg(MAX_GYRO_Z_H)) << 8) | MAX21100_ReadReg(MAX_GYRO_Z_L)) ;
+	}
+	if(acc_status)
+	{
+		acc.x=((((int16_t)MAX21100_ReadReg(MAX_ACC_X_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_X_L)) ;
+		acc.y=((((int16_t)MAX21100_ReadReg(MAX_ACC_Y_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Y_L)) ;
+		acc.z=((((int16_t)MAX21100_ReadReg(MAX_ACC_Z_H)) << 8)   | MAX21100_ReadReg(MAX_ACC_Z_L)) ;
+	}
 }
 
