@@ -16,4 +16,5 @@ void BSP_Init(void)
 	BSP_GPIO_SonicInit();
 	Max21100_Init();
 	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);	/* turn off green light. */
+	MS5611_Init();
 }

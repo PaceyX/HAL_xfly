@@ -46,6 +46,7 @@
 #include "hmc5983.h"
 #include "ultrasonic.h"
 #include "max21100.h"
+#include "ms5611.h"
 
 
 #endif
