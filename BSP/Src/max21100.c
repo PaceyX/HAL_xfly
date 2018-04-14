@@ -66,6 +66,7 @@ uint8_t MAX21100_ReadReg(uint8_t reg)
 	
 	HAL_SPI_Transmit(&hspi1, &reg, 1, 0xFFFF);
 	HAL_SPI_Receive(&hspi1, &reg_value, 1, 0xFFFF);
+
 	MAX_CS_Disable();
 	return (reg_value); 
 }

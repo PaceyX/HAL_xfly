@@ -23,7 +23,7 @@
 
 
 void MS5611_Init(void);
-
+void MS5611_GetData(void);
 
 
 
