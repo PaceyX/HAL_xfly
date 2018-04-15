@@ -586,11 +586,6 @@
               <FilePath>.\BSP\Src\max21100.c</FilePath>
             </File>
             <File>
-              <FileName>ms5611.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\ms5611.c</FilePath>
-            </File>
-            <File>
               <FileName>ultrasonic.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\ultrasonic.c</FilePath>
@@ -634,6 +629,11 @@
               <FileName>gpio_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\gpio_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ms5611_temp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ms5611_temp.c</FilePath>
             </File>
           </Files>
         </Group>

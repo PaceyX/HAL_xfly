@@ -75,11 +75,12 @@ void MS5611_ReadProm(void)
 		HAL_Delay(1);
 		MS_CS_Disable();
 	}
+	
 }
 
 
 /******************************************************************
-									  读取24位ADC值
+						 读取24位ADC值
 ******************************************************************/
 static uint32_t ms5611_read_adc(void)
 {
@@ -209,7 +210,7 @@ void MS5611_Init(void)
 	
 	MS5611.BaroAltOffset = 0.0f;
 	MS5611_Reset();
-	HAL_Delay(500);	
+	HAL_Delay(10);	
 	MS5611_ReadProm();
 	HAL_Delay(500);
 	
