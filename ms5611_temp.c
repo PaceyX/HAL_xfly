@@ -80,6 +80,13 @@ static void StartPressureConvert(void)
 	MS_CS_DISABLE;
 }
 
+void MS5611_Calculate(void)
+{
+	int32_t dT = (int32_t)TemperatureADC - ((int32_t)PromData[5] << 8);
+	
+}
+
+
 void MS5611_UpdateData(void)
 {
 	static uint8_t count = 0;
