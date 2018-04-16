@@ -631,9 +631,9 @@
               <FilePath>.\BSP\Src\gpio_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>ms5611_temp.c</FileName>
+              <FileName>ms5611.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\ms5611_temp.c</FilePath>
+              <FilePath>.\BSP\Src\ms5611.c</FilePath>
             </File>
           </Files>
         </Group>

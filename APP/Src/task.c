@@ -16,6 +16,5 @@ void AppTask(void)
 	ultraDistanceSampling();
 	HMC5983_ReadMag();
 	MAX21100_UpdateData();
-	
-//	MS5611_GetData();
+	MS5611_UpdateData();
 }

@@ -181,17 +181,12 @@
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>MS5611_prom,0x0A</ItemText>
+          <ItemText>MS5611,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>1</WinNumber>
-          <ItemText>MS5611,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>8</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>MS5611_BUF</ItemText>
+          <ItemText>PromData</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -842,8 +837,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\ms5611_temp.c</PathWithFileName>
-      <FilenameWithoutPath>ms5611_temp.c</FilenameWithoutPath>
+      <PathWithFileName>.\BSP\Src\ms5611.c</PathWithFileName>
+      <FilenameWithoutPath>ms5611.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
