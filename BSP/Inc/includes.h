@@ -47,6 +47,7 @@
 #include "ultrasonic.h"
 #include "max21100.h"
 #include "ms5611.h"
+#include "w25q32.h"
 
 
 #endif

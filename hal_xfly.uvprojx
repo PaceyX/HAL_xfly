@@ -635,6 +635,11 @@
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\ms5611.c</FilePath>
             </File>
+            <File>
+              <FileName>w25q32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\w25q32.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
