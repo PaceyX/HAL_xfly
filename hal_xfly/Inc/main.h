@@ -60,6 +60,8 @@
 #define MS_CS_GPIO_Port GPIOA
 #define MAX_CS_Pin GPIO_PIN_4
 #define MAX_CS_GPIO_Port GPIOA
+#define W25Q_NSS_Pin GPIO_PIN_15
+#define W25Q_NSS_GPIO_Port GPIOA
 #define ULTR_TRIG_Pin GPIO_PIN_3
 #define ULTR_TRIG_GPIO_Port GPIOD
 #define ULTR_ECHO_Pin GPIO_PIN_4

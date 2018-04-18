@@ -115,6 +115,7 @@ int main(void)
   MX_SPI2_Init();
   MX_ADC1_Init();
   MX_TIM6_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 	BSP_Init();
   /* USER CODE END 2 */
