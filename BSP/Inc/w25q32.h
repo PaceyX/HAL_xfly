@@ -6,9 +6,18 @@ typedef struct{
 	uint8_t manufacturer;
 	uint8_t memory;
 	uint8_t capacity;
-}ExtraFlashTypedef;
+} ExtraFlashTypedef;
 
 extern ExtraFlashTypedef W25Q;
+
+typedef struct
+{
+    uint8_t initialized;
+    uint16_t sector_size;
+    uint16_t sector_count;
+    uint32_t capacity;
+} FlashInfoTypefdef;
+
 
 #define W25Q_CS_Enable		HAL_GPIO_WritePin(W25Q_NSS_GPIO_Port, W25Q_NSS_Pin, GPIO_PIN_RESET)
 #define W25Q_CS_Disable		HAL_GPIO_WritePin(W25Q_NSS_GPIO_Port, W25Q_NSS_Pin, GPIO_PIN_SET)
@@ -39,6 +48,7 @@ extern ExtraFlashTypedef W25Q;
 /* Dummy Byte. */
 #define W25Q_DUMMY_BYTE		0xFF
 
+#define JEDEC_W25Q32_DW     (0x6016) /* W25Q32DW */
 
 
 void W25Q_Init(void);
