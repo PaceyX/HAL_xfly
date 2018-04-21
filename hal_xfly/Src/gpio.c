@@ -56,6 +56,7 @@
         * Output
         * EVENT_OUT
         * EXTI
+     PA8   ------> RCC_MCO_1
 */
 void MX_GPIO_Init(void)
 {
@@ -71,8 +72,7 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, RGB_SDI_Pin|LED_RED_Pin|LED_GREEN_Pin|RGB_LE_Pin 
-                          |RGB_CLK_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, RGB_SDI_Pin|LED_RED_Pin|LED_GREEN_Pin|RGB_CLK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, MS_CS_Pin|MAX_CS_Pin|W25Q_NSS_Pin, GPIO_PIN_SET);
@@ -80,10 +80,18 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(ULTR_TRIG_GPIO_Port, ULTR_TRIG_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PEPin PEPin PEPin PEPin 
-                           PEPin */
-  GPIO_InitStruct.Pin = RGB_SDI_Pin|LED_RED_Pin|LED_GREEN_Pin|RGB_LE_Pin 
-                          |RGB_CLK_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RGB_LE_GPIO_Port, RGB_LE_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pins : PEPin PEPin PEPin */
+  GPIO_InitStruct.Pin = RGB_SDI_Pin|RGB_LE_Pin|RGB_CLK_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PEPin PEPin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|LED_GREEN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -102,6 +110,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(MAX_CS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = W25Q_NSS_Pin;
