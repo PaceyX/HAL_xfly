@@ -576,6 +576,51 @@
               <FilePath>.\BSP\Src\bsp.c</FilePath>
             </File>
             <File>
+              <FileName>led_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\led_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>iic_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\iic_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\spi_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\gpio_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\usart_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart1_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\usart1_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart3_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\usart3_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart5_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\uart5_bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\pwm_bsp.c</FilePath>
+            </File>
+            <File>
               <FileName>hmc5983.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\hmc5983.c</FilePath>
@@ -589,46 +634,6 @@
               <FileName>ultrasonic.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\ultrasonic.c</FilePath>
-            </File>
-            <File>
-              <FileName>iic_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\iic_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>pwm_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\pwm_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\spi_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\usart_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>uart5_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\uart5_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart1_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\usart1_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart3_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\usart3_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>gpio_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\gpio_bsp.c</FilePath>
             </File>
             <File>
               <FileName>ms5611.c</FileName>

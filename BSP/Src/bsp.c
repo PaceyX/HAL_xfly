@@ -15,8 +15,14 @@ void BSP_Init(void)
 	HMC5983_Init();
 	Max21100_Init();
 	BSP_GPIO_SonicInit();
+	LEDsSetConfig();
 	
     BSP_PWMChannelStart();
 	HAL_TIM_Base_Start_IT(&htim6);
 	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);	/* turn off green light. */
+	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+	
+//	run_led_test();
+	LEDs_ColorAdjust(1,0,0,255);
+	
 }
