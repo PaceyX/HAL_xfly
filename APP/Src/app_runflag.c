@@ -1,23 +1,21 @@
 #include "stm32f4xx_hal.h"
 #include "app_runflag.h"
 
-static uint8_t PriorityFlag;
 static uint32_t RunTick;
 SYSFlagType RunFlag;
 
 #define SYS_RUN_FLAG(time)	do{\
-	RunFlag.Ms##time = 0;	\
-	RunFlag.Ms##time##Cnt = tick;	\
+	RunFlag.ms##time = 0;	\
+	RunFlag.ms##time##Cnt = tick;	\
 }while(0)
 
-#define TIME_FLAG(time)		TimeCalc(time, &(RunFlag.Ms##time),&(RunFlag.Ms##time##Cnt))
+#define TIME_FLAG(time)		TimeCalc(time, &(RunFlag.ms##time),&(RunFlag.ms##time##Cnt))
 void TimeCalc(uint32_t time_factor, uint8_t * p_flag, uint32_t * p_cnt)
-{
-	if(!PriorityFlag && RunTick - *p_cnt >= time_factor)
+{ 
+	if(((RunTick - *p_cnt) >= time_factor))
 	{
 		*p_flag = 1;
 		*p_cnt += time_factor;
-		PriorityFlag = 1;
 	}
 	else
 	{
@@ -42,7 +40,6 @@ void RunFlagInit(void)
 
 void RunFlagHandleTask(void)
 {
-	PriorityFlag = 0;
 	RunTick = HAL_GetTick();
 	
 	TIME_FLAG(1);

@@ -10,6 +10,7 @@ void BSP_Init(void)
     Comm1_Init(&huart1);
     Comm3_Init(&huart3);
     Comm5_Init(&huart5);
+	RunFlagInit();
 	W25Q_Init();
 	MS5611_Init();
 	HMC5983_Init();
@@ -23,6 +24,6 @@ void BSP_Init(void)
 	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
 	
 //	run_led_test();
-	LEDs_ColorAdjust(1,0,0,255);
+	LEDs_ColorAdjust(1,0,100,0);
 	
 }

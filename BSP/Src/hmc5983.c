@@ -20,13 +20,10 @@ void HMC5983_Init(void)
 	HAL_Delay(100);
 }
 
+/**
+*	@brief	Call at least 80ms.
+*/
 void HMC5983_ReadMag(void)
 {
-	static u32 last_time = 0;
-	
-	if(HAL_GetTick() - last_time > 80)	last_time = HAL_GetTick();
-	else  return;
-	
 	HmcRetStatus = BSP_IICMemoryRead(&hi2c1, HMC5983_ADDRESS, HMC5983_X_MSB,I2C_MEMADD_SIZE_8BIT, Magnetic2, 6, 10);
-
 }

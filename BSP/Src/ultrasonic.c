@@ -46,10 +46,8 @@ void BSP_GPIO_SonicInit(void)
 */
 void ultraDistanceSampling(void)
 {	
-//	if(ultra.set_end_flag == 1)	 
-		ultra.set_start_flag = 1;
+	ultra.set_start_flag = 1;
 	printf("%f\n", ultra.distance);
-	HAL_Delay(20);
 }
 
 /**
