@@ -46,8 +46,10 @@ void BSP_GPIO_SonicInit(void)
 */
 void ultraDistanceSampling(void)
 {	
-	ultra.set_start_flag = 1;
+//	if(ultra.set_end_flag == 1)	 
+		ultra.set_start_flag = 1;
 	printf("%f\n", ultra.distance);
+	HAL_Delay(20);
 }
 
 /**
@@ -72,15 +74,15 @@ static void SendStartSignal(void)
 	
 	if(ultra.set_start_flag == 1)
 	{
-		if(ultra.set_end_flag == 0)		return;
+//		if(ultra.set_end_flag == 0)		return;
 		
-		ultra.set_end_flag = 0;
 		TRIG_SET_HIGH;
 		cou++;
 		if(cou == 2)	/* send 20us high level. */
 		{
 			TRIG_SET_LOW;
 			ultra.set_start_flag = 2;
+//			ultra.set_end_flag = 0;
 			cou = 0;
 		}
 	}
