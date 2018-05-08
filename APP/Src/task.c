@@ -13,6 +13,7 @@ void AppTask(void)
 
 	if(RunFlag.ms20)
 	{
+		
 		ultraDistanceSampling();
 	}
 	
@@ -30,6 +31,6 @@ void AppTask(void)
 
 	if(RunFlag.ms1000)
 	{
-		HAL_GPIO_TogglePin(LED_RED_GPIO_Port,LED_RED_Pin);
+//		HAL_GPIO_TogglePin(LED_RED_GPIO_Port,LED_RED_Pin);
 	}
 }

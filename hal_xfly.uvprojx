@@ -565,11 +565,6 @@
               <FileType>1</FileType>
               <FilePath>.\APP\Src\app_timer.c</FilePath>
             </File>
-            <File>
-              <FileName>app_transfer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\APP\Src\app_transfer.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

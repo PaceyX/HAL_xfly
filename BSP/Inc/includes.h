@@ -11,9 +11,6 @@
 #include <stdbool.h>
 
 
-
-
-
 /************************************HAL***************************************/
 #include "stm32f4xx_hal.h"
 
@@ -27,14 +24,11 @@
 #include "gpio.h"
 
 
-
 /************************************APP***************************************/
 #include "global_define.h"
 #include "bsp.h"
 #include "app_runflag.h"
 #include "app_timer.h"
-
-
 
 
 /************************************BSP***************************************/
@@ -49,5 +43,6 @@
 #include "ms5611.h"
 #include "w25q32.h"
 #include "led_bsp.h"
+
 
 #endif
