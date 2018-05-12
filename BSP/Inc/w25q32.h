@@ -52,7 +52,7 @@ typedef struct
 
 
 void W25Q_Init(void);
-
+void flash_test(void);
 
 
 

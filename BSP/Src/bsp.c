@@ -24,6 +24,7 @@ void BSP_Init(void)
 	HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);	/* turn off green light. */
 	HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
 	
+	flash_test();
 //	run_led_test();
 	LEDs_ColorAdjust(1,0,100,0);
 	LEDs_ColorAdjust(2,0,100,100);

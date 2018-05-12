@@ -42,6 +42,22 @@ void W25Q_WriteDisable(void)
     W25Q_CS_Disable;
 }
 
+void Flash_WaitForEnd(void)
+{
+    uint8_t FLASH_Status = 0;
+
+    do
+    {
+        W25Q_CS_Enable;
+		
+        W25Q_ReadWriteByte(W25Q_READ_STATUS);
+        FLASH_Status = W25Q_ReadWriteByte(W25Q_DUMMY_BYTE);
+		
+       	W25Q_CS_Disable;
+    }
+    while (FLASH_Status & W25Q_STATUS_BUSY);
+}
+
 void W25Q_FlashSectorErase(uint32_t address, uint8_t state)
 {
 	uint8_t FLASH_Status = 0;
@@ -83,6 +99,28 @@ void W25Q_FlashPageRead(uint32_t address, uint8_t * buffer, uint32_t lenght)
 		*buffer = W25Q_ReadWriteByte(W25Q_DUMMY_BYTE);
 		buffer++;
 	}
+	W25Q_CS_Disable;
+}
+
+
+void Flash_PageWrite(uint32_t address,uint8_t* buffer,  uint32_t lenght)
+{
+	uint8_t ret_value;
+	
+	W25Q_CS_Enable;
+	W25Q_WriteEnable();
+	
+	W25Q_ReadWriteByte(W25Q_PAGE_WRITE);
+	W25Q_ReadWriteByte((address & 0xFF0000) >> 16);
+	W25Q_ReadWriteByte((address & 0xFF00) >> 8);
+	W25Q_ReadWriteByte(address & 0xFF);
+	
+	while (lenght--)
+    {
+        ret_value = W25Q_ReadWriteByte(*buffer);
+        buffer++;
+    }
+	
 	W25Q_CS_Disable;
 }
 
@@ -140,6 +178,23 @@ void W25Q_Init(void)
 }
 
 
+void flash_test(void)
+{
+	uint8_t write_buffer[200];
+	uint8_t read_buffer[200];
+	uint32_t address0 = 0, address1 = 0;
+	
+	for(uint32_t i; i<200; i++)
+	{
+		write_buffer[i] = i;
+	}
+	
+	Flash_PageWrite(address0, write_buffer, 100);
+	Flash_WaitForEnd();
+	
+	W25Q_FlashPageRead(address1, read_buffer,100);
+
+}
 
 
 

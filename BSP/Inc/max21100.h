@@ -1,9 +1,15 @@
 #ifndef __MAX21100_H__
 #define __MAX21100_H__
 
+typedef struct
+{
+	int16_t x;
+	int16_t y;
+	int16_t z;
+}DofTypeDef;
 
-//extern DofTypeDef gyro;
-//extern DofTypeDef acc;
+extern DofTypeDef gyro;
+extern DofTypeDef acc;
 
 
 

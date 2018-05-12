@@ -3,7 +3,7 @@
 
 
 
-
+#include "global_define.h"
 
 typedef struct{
 	uint32_t ms1Cnt;
@@ -26,6 +26,11 @@ typedef struct{
     uint8_t ms1000;
 }SYSFlagType;
 extern SYSFlagType RunFlag;
+
+typedef struct{
+    u32 capture;
+    u32 count;
+}IntervalTimeType;
 
 void RunFlagInit(void);
 void RunFlagHandleTask(void);
