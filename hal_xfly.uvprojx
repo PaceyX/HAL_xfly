@@ -601,19 +601,9 @@
               <FilePath>.\BSP\Src\usart_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>usart1_bsp.c</FileName>
+              <FileName>usart_user.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\BSP\Src\usart1_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>usart3_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\usart3_bsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>uart5_bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\BSP\Src\uart5_bsp.c</FilePath>
+              <FilePath>.\BSP\Src\usart_user.c</FilePath>
             </File>
             <File>
               <FileName>pwm_bsp.c</FileName>

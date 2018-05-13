@@ -129,6 +129,7 @@ bool BSP_CommUsartRecvDataByLength(CommUsartType *hcomm, uint8_t *buf, uint32_t 
 void BSP_CommUsartEnableIT(CommUsartType *hcomm, bool en)
 {
     if(en)
+		
     {
         __HAL_UART_ENABLE_IT(hcomm->huart, UART_IT_RXNE);
     }
