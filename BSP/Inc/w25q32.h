@@ -50,12 +50,28 @@ typedef struct
 
 #define JEDEC_W25Q32_DW     (0x6016) /* W25Q32DW */
 
+#define W25Q_PAGE_SIZE		256
+
+#define  FLASH_WriteAddress     0x00000
+#define  FLASH_ReadAddress      FLASH_WriteAddress
+#define  FLASH_SectorToErase    FLASH_WriteAddress
 
 void W25Q_Init(void);
 void flash_test(void);
 
 
-
+/***************************************************************************************
+*	W25Q32FVZPIG Paranter:
+*	扇区大小 sector_size：  4096 bytes (4K)
+*	扇区个数：sector_count: 1024
+*	页大小： page_size:     256 bytes
+*	总容量： capacity:		4194304 bytes(4M)
+*	地址范围： 0x000000 - 0x3FFFFF (0x400000)
+*	Page0	0x000000 -> 0x0000FF	(256 bytes)
+*	Page1	0x000100 -> 0x0001FF	(256 bytes)
+*	...
+*	Page16384...
+***************************************************************************************/
 
 
 

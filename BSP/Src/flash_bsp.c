@@ -69,9 +69,9 @@ void STMFLASH_Write ( uint32_t WriteAddr, uint16_t * pBuffer, uint16_t NumToWrit
 		{
 
 
-      EraseInitStruct.TypeErase     = FLASH_TYPEERASE_PAGES;
-      EraseInitStruct.PageAddress   = secpos*STM_SECTOR_SIZE+FLASH_BASE;
-      EraseInitStruct.NbPages       = 1;
+      EraseInitStruct.TypeErase     = FLASH_TYPEERASE_SECTORS;
+      EraseInitStruct.Sector   = secpos*STM_SECTOR_SIZE+FLASH_BASE;
+//      EraseInitStruct.NbPages       = 1;
       HAL_FLASHEx_Erase(&EraseInitStruct, &SECTORError);
 
 			for(i=0;i<secremain;i++)

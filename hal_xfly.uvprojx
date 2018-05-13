@@ -645,6 +645,11 @@
               <FileType>1</FileType>
               <FilePath>.\BSP\Src\w25q32.c</FilePath>
             </File>
+            <File>
+              <FileName>flash_bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BSP\Src\flash_bsp.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
